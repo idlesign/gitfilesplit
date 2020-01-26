@@ -12,15 +12,6 @@ def run(command: str, *, check_code: bool = True):
     return result
 
 
-def configure_logging(level: int = None):
-    """Switches on logging at a given level. For a given logger or globally.
-
-    :param level:
-
-    """
-    logging.basicConfig(format='%(message)s', level=level)
-
-
 def split(*, source: str, targets: List[str]):
     """Splits one file into several
 

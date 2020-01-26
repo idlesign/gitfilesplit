@@ -3,7 +3,16 @@ import argparse
 import logging
 
 from gitfilesplit import VERSION_STR
-from gitfilesplit.toolbox import split, configure_logging
+from gitfilesplit.toolbox import split
+
+
+def configure_logging(level: int = None):
+    """Switches on logging at a given level. For a given logger or globally.
+
+    :param level:
+
+    """
+    logging.basicConfig(format='%(message)s', level=level)
 
 
 def main():
