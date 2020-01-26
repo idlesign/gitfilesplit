@@ -12,7 +12,6 @@ def test_basic(tmpdir):
     with tmpdir.as_cwd():
 
         run('git init')
-        a = 1
         source = tmpdir.join('myhugefile.py')
 
         base_text = '# this file has many files\n' * 80
