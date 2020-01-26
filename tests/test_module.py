@@ -1,3 +1,4 @@
+import subprocess
 from gitfilesplit.toolbox import run, split
 
 
@@ -27,6 +28,13 @@ def test_basic(tmpdir):
             source=source.basename,
             targets=['smaller.py', 'another.py', 'some.py']
         )
+        result = subprocess.run('git log', shell=True, stdout=subprocess.PIPE)
+
+        out = result.stdout
+        assert b'Split myhugefile.py into some.py' in out
+        assert b'Split myhugefile.py into smaller.py' in out
+        assert b'Split myhugefile.py into another.py' in out
+        assert b'first' in out
 
         # todo maybe a cli test
         # run('gitfilesplit myhugefile.py smaller.py another.py some.py ')
