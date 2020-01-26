@@ -1,0 +1,3 @@
+[run]
+source = gitfilesplit/
+omit = gitfilesplit/cli.py
