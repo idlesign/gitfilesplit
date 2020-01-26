@@ -26,14 +26,14 @@ def test_basic(tmpdir):
 
         split(
             source=source.basename,
-            targets=['smaller.py', 'another.py', 'some.py']
+            targets=['sub/deep/smaller.py', 'sub2/another.py', 'sub/some.py']
         )
         result = subprocess.run('git log', shell=True, stdout=subprocess.PIPE)
 
         out = result.stdout
-        assert b'Split myhugefile.py into some.py' in out
-        assert b'Split myhugefile.py into smaller.py' in out
-        assert b'Split myhugefile.py into another.py' in out
+        assert b'Split myhugefile.py into sub/some.py' in out
+        assert b'Split myhugefile.py into sub/deep/smaller.py' in out
+        assert b'Split myhugefile.py into sub2/another.py' in out
         assert b'first' in out
 
         # todo maybe a cli test

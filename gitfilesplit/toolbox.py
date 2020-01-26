@@ -1,7 +1,8 @@
 import logging
+from os import makedirs
+from pathlib import Path
 from subprocess import run as run_
 from typing import List
-
 
 LOG = logging.getLogger(__name__)
 
@@ -16,7 +17,12 @@ def split(*, source: str, targets: List[str]):
     """Splits one file into several
 
     :param source: Source file name
-    :param targets: Target file names.
+
+    :param targets: Target file names (may include subdirectories).
+
+        Examples:
+            * myfile.py
+            * subdir/deeper/another.py
 
     """
     LOG.info(f"Splitting {source} into {', '.join(targets)}")
@@ -37,6 +43,10 @@ def split(*, source: str, targets: List[str]):
             if not is_last:
                 run(f'git checkout -b {branch_name}')
                 branches.append(branch_name)
+
+            parent = Path(target).parent
+            if parent:
+                makedirs(f'{parent}', exist_ok=True)
 
             run(f'git mv {source} {target}')
 

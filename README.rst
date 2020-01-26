@@ -38,7 +38,8 @@ The same in Python:
 
     split(
         source='myhugefile.py',
-        targets=['smaller.py', 'another.py', 'some.py']
+        # And with subdirectories:
+        targets=['smaller.py', 'sub1/another.py', 'sub2/some.py']
     )
 
 
