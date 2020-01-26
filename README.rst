@@ -43,7 +43,7 @@ The same in Python:
 
 
 Under the hood it will create several branches in which source file is moved to target locations.
-After that octopus merge of these branches will be performed.
+After that octopus merge of these branches will be performed and temporary branches removed.
 
 
 Requirements
