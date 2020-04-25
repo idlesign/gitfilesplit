@@ -2,6 +2,11 @@ gitfilesplit changelog
 ======================
 
 
+Unreleased
+----------
+* No changes. Celebrating 1.0.
+
+
 v0.2.0 [2020-01-26]
 -------------------
 + Added support for subdirectories in targets.
