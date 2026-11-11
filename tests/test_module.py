@@ -42,7 +42,6 @@ def test_basic(tmpdir):
         assert b'first' in out
 
         # todo maybe a cli test
-        # run('gitfilesplit myhugefile.py smaller.py another.py some.py ')
 
 
 def test_cli_requires_at_least_one_target(monkeypatch, capsys):

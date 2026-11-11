@@ -1,12 +1,11 @@
-#!/usr/bin/env python3
 import argparse
 import logging
 
-from gitfilesplit import VERSION_STR
+from gitfilesplit import VERSION
 from gitfilesplit.toolbox import split
 
 
-def configure_logging(level: int = None):
+def configure_logging(level: int | None = None):
     """Switches on logging at a given level. For a given logger or globally.
 
     :param level:
@@ -21,7 +20,7 @@ def main():
         prog='gitfilesplit',
         description='Command line helper to Git split one file into several preserving history'
     )
-    arg_parser.add_argument('--version', action='version', version=VERSION_STR)
+    arg_parser.add_argument('--version', action='version', version=VERSION)
     arg_parser.add_argument('source', help='Source filename to split')
     arg_parser.add_argument('targets', nargs='+', help='One or more target filenames to split source into')
 

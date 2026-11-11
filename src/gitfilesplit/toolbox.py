@@ -1,5 +1,5 @@
 import logging
-from os import makedirs
+
 from pathlib import Path
 from subprocess import run as run_
 from typing import List
@@ -25,7 +25,7 @@ def split(*, source: str, targets: List[str]):
             * subdir/deeper/another.py
 
     """
-    LOG.info(f"Splitting {source} into {', '.join(targets)}")
+    LOG.info('Splitting %s into %s', source, ', '.join(targets))
 
     total = len(targets)
     branches = []
@@ -34,7 +34,7 @@ def split(*, source: str, targets: List[str]):
 
         for idx, target in enumerate(targets, 1):
 
-            LOG.info(f"Split out {source} into {target} ...")
+            LOG.info('Split out %s into %s ...', source, target)
 
             branch_name = f'split/{source}-{target}'
 
@@ -46,7 +46,7 @@ def split(*, source: str, targets: List[str]):
 
             parent = Path(target).parent
             if parent:
-                makedirs(f'{parent}', exist_ok=True)
+                parent.mkdir(parents=True, exist_ok=True)
 
             run(f'git mv {source} {target}')
 

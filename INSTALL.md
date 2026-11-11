@@ -1,31 +1,25 @@
-gitfilesplit installation
-=========================
+# gitfilesplit installation
 
+Python `pip` package is required to install `gitfilesplit`.
 
-Python ``pip`` package is required to install ``gitfilesplit``.
+## From sources
 
+Use the following command line to install `gitfilesplit` from sources directory (containing `pyproject.toml`):
 
-From sources
-------------
+```shell
+pip install .
+```
 
-Use the following command line to install ``gitfilesplit`` from sources directory (containing setup.py):
+## From PyPI
 
-    pip install .
+Alternatively you can install `gitfilesplit` from PyPI:
 
-or
-
-    python setup.py install
-
-
-From PyPI
----------
-
-Alternatively you can install ``gitfilesplit`` from PyPI:
-
-    pip install gitfilesplit
-
+```shell
+pip install gitfilesplit
+```
 
 Use `-U` flag for upgrade:
 
-    pip install -U gitfilesplit
-
+```shell
+pip install -U gitfilesplit
+```
