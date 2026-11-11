@@ -23,7 +23,7 @@ def main():
     )
     arg_parser.add_argument('--version', action='version', version=VERSION_STR)
     arg_parser.add_argument('source', help='Source filename to split')
-    arg_parser.add_argument('targets', nargs='*', help='One or more target filenames to split source into')
+    arg_parser.add_argument('targets', nargs='+', help='One or more target filenames to split source into')
 
     args = arg_parser.parse_args()
 

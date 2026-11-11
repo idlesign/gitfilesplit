@@ -1,4 +1,9 @@
 import subprocess
+import sys
+
+import pytest
+
+from gitfilesplit.cli import main
 from gitfilesplit.toolbox import run, split
 
 
@@ -38,3 +43,11 @@ def test_basic(tmpdir):
 
         # todo maybe a cli test
         # run('gitfilesplit myhugefile.py smaller.py another.py some.py ')
+
+
+def test_cli_requires_at_least_one_target(monkeypatch, capsys):
+    monkeypatch.setattr(sys, 'argv', ['gitfilesplit', 'myhugefile.py'])
+    with pytest.raises(SystemExit) as exc:
+        main()
+    assert exc.value.code == 2
+    assert 'targets' in capsys.readouterr().err
